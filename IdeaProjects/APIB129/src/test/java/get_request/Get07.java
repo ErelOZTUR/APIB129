@@ -46,18 +46,19 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         //Print all ids greater than 190 on the console
         JsonPath jsonPath = response.jsonPath();
-        List<Object> list= jsonPath.getList("findAll{it.id>190}");//Grovy language ==> Jva temelli proglamlama dili
+        System.out.println(jsonPath.getList("id"));
+        List<Object> list= jsonPath.getList("findAll{it.id>190}.id");//Groovy language ==> Java temelli proglamlama dili
         System.out.println("list = " + list);
 
         //Assert that there are 10 ids greater than 190
         assertEquals(10,list.size());
 
-        //Print all userIds whose ids are less than 5 on the console
+       //Print all userIds whose ids are less than 5 on the console
         List<Object> userIdList=jsonPath.getList("findAll{it.id<5}.userId");
-        System.out.println("userIdList = " + userIdList);
+       System.out.println("userIdList = " + userIdList);
 
         //Assert that the number of userIds whose ids are less than 5 is 4
-        assertEquals(4,userIdList.size());
+       assertEquals(4,userIdList.size());
 
         //Print all titles whose ids are less than 5
         List<Object> titleList=jsonPath.getList("findAll{it.id<5}.title");
