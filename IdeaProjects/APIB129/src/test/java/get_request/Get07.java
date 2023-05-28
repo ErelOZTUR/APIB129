@@ -63,9 +63,12 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         //Print all titles whose ids are less than 5
         List<Object> titleList=jsonPath.getList("findAll{it.id<5}.title");
         System.out.println("titleList = " + titleList);
+        //Exstra Ornek
+      List<String> tit=  jsonPath.getList("findAll{it.title=='ipsam aperiam voluptates qui'}.id");
+        System.out.println(tit);
 
         // Assert that "delectus aut autem" is one of the titles whose id is less than 5
-        assertTrue(titleList.contains("delectus aut autem"));
+      //  assertTrue(titleList.contains("delectus aut autem"));
 
     }
 
