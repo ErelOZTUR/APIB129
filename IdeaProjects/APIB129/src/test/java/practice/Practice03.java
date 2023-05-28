@@ -35,6 +35,7 @@ public class Practice03 extends RegresInAppBaseUrl {
         spec.pathParams("first","users","second","2");
         //set the expected data
         //send the request and get the responce
+
         Response response=given(spec).get("{first}/{second}");
         response.prettyPrint();
         //do asserttion
