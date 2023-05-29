@@ -58,7 +58,7 @@ I send PUT Request to the Url
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
 
     }
-    @Test
+    @Test//dinamik yöntem
     public void put01b() {
         //Set the url
         spec.pathParams("first","todos","second",198);
