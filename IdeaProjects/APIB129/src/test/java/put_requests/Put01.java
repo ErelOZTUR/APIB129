@@ -66,7 +66,7 @@ I send PUT Request to the Url
         //Set the expected data
         JsonPlaceHolderTestData jsonPlaceHolderTestData = new JsonPlaceHolderTestData();
         //JsonPlaceHolderTestData classinda bulunan expectedDataMap() methodunu kullandik
-        Map<String, Object> expectedData=jsonPlaceHolderTestData.expectedDataMap(21,"Wash the dishes",false);
+        Map<String, Object> expectedData=jsonPlaceHolderTestData.expectedDataMapMethod(21,"Wash the dishes",false);
         System.out.println("expectedData = " + expectedData);
 
 

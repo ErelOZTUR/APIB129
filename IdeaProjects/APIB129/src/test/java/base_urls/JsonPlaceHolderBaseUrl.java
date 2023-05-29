@@ -8,7 +8,7 @@ import org.junit.Before;
 public class JsonPlaceHolderBaseUrl {
     //Bu set Up methodu ile request isleminde tekrarli yapilacak islemler burada bir kez yapilacak. @Test oncesi calismasi icin @Before anotasyonu ekliyoruz
     protected RequestSpecification spec;
-    @Before//Her tet methodu oncesi calisir
+    @Before//Her test methodu oncesi calisir
     public void setUp(){
         spec = new RequestSpecBuilder().
                 setContentType(ContentType.JSON).
