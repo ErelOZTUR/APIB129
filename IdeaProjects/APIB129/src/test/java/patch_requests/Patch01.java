@@ -2,7 +2,6 @@ package patch_requests;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
         spec.pathParams("first", "todos", "second", 198);
 
         //Set the expected data
-        Map<String, Object> expectedData = new JsonPlaceHolderTestData().expectedDataMapMethod(null, "Wash the dishes", null);
+        Map<String, Object> expectedData = new JsonPlaceHolderTestData().expectedDataMap(null, "Wash the dishes", null);
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response

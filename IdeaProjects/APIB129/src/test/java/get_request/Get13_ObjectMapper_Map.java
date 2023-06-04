@@ -1,9 +1,9 @@
 package get_request;
-import Utilities.ObjectMapperUtils;
+
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-
+import utils.ObjectMapperUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class Get13_ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
-   /*
+        /*
        Given
            https://jsonplaceholder.typicode.com/todos/198
        When
@@ -57,5 +57,4 @@ public class Get13_ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
         assertEquals(expectedData.get("completed"), actualData.get("completed"));
 
     }
-
 }

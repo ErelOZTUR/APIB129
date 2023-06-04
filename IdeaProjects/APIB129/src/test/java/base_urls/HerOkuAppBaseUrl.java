@@ -5,12 +5,22 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class HerOkuAppBaseUrl {
-    //Bu set Up methodu ile request isleminde tekrarli yapilacak islemler burada bir kez yapilacak. @Test oncesi calismasi icin @Before anotasyonu ekliyoruz
-    protected RequestSpecification spec;
-    @Before//Her tet methodu oncesi calisir
-    public void setUp(){
+import static Utilities.AuthenticationHerOkuApp.generateToken;
 
-        spec = new RequestSpecBuilder().setContentType(ContentType.JSON).setBaseUri("https://restful-booker.herokuapp.com/").build();
+
+public class HerOkuAppBaseUrl {
+
+    protected RequestSpecification spec;
+
+    @Before
+    public void setUp() {
+
+        spec = new RequestSpecBuilder()
+                .addHeader("Cookie", "token="+generateToken())
+                .setContentType(ContentType.JSON)
+                .setBaseUri("https://restful-booker.herokuapp.com/")
+                .build();
+
     }
+
 }

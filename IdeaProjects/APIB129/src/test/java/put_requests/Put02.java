@@ -1,12 +1,13 @@
 package put_requests;
 
+import Utilities.ObjectMapperUtils;
 import base_urls.DummyRestApiBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.DummyRestApiDataPojo;
 import pojos.DummyRestApiResponsePojo;
-import utils.ObjectMapperUtils;
+
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;

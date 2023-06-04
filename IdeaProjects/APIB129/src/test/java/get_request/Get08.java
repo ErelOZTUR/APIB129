@@ -3,7 +3,6 @@ package get_request;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +38,7 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 
         //Set the expected data
         JsonPlaceHolderTestData obj = new JsonPlaceHolderTestData();
-        Map<String, Object> expectedData = obj.expectedDataMapMethod(1, "quis ut nam facilis et officia qui", false);
+        Map<String, Object> expectedData = obj.expectedDataMap(1, "quis ut nam facilis et officia qui", false);
 
         expectedData.put("Via", "1.1 vegur");//Değişkeleri "Set the expected data" adımında ekliyoruz.
         expectedData.put("Server", "cloudflare");

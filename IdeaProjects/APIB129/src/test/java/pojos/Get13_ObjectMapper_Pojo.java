@@ -3,8 +3,6 @@ package pojos;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.JsonPlaceHolderPojo;
-import test_data.JsonPlaceHolderTestData;
 import utils.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;

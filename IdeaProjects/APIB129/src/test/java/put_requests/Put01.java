@@ -3,7 +3,6 @@ package put_requests;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +65,7 @@ I send PUT Request to the Url
         //Set the expected data
         JsonPlaceHolderTestData jsonPlaceHolderTestData = new JsonPlaceHolderTestData();
         //JsonPlaceHolderTestData classinda bulunan expectedDataMap() methodunu kullandik
-        Map<String, Object> expectedData=jsonPlaceHolderTestData.expectedDataMapMethod(21,"Wash the dishes",false);
+        Map<String, Object> expectedData=jsonPlaceHolderTestData.expectedDataMap(21,"Wash the dishes",false);
         System.out.println("expectedData = " + expectedData);
 
 
