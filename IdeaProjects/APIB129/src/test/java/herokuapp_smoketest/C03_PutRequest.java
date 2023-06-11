@@ -10,44 +10,41 @@ import pojos.BookingPojo;
 
 import static herokuapp_smoketest.C01_PostRequest.bookingId;
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class C03_PutRequest extends HerOkuAppBaseUrl {
     /*
     Given
         https://restful-booker.herokuapp.com/booking/:id
-
     And
         {
-        "firstname" : "Ali",
-        "lastname" : "Can",
-        "totalprice" : 100,
-        "depositpaid" : true,
-        "bookingdates" : {
-            "checkin" : "2018-01-01",
-            "checkout" : "2019-01-01"
-        },
-        "additionalneeds" : "Dinner"
+            "firstname" : "Ali",
+            "lastname" : "Can",
+            "totalprice" : 222,
+            "depositpaid" : true,
+            "bookingdates" : {
+                "checkin" : "2018-01-01",
+                "checkout" : "2019-01-01"
+            },
+            "additionalneeds" : "Breakfast"
         }
-    When
+     When
         Send put request
-
-    Then
+     Then
         Status code is 200
-
-    And
+     And
         Body:
-        {
-        "firstname" : "Ali",
-        "lastname" : "Can",
-        "totalprice" : 100,
-        "depositpaid" : true,
-        "bookingdates" : {
-            "checkin" : "2018-01-01",
-            "checkout" : "2019-01-01"
-        },
-        "additionalneeds" : "Dinner"
-        }
+           {
+                "firstname": "Ali",
+                "lastname": "Can",
+                "totalprice": 222,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2018-01-01",
+                    "checkout": "2019-01-01"
+                },
+                "additionalneeds": "Breakfast"
+            }
      */
 
     @Test
@@ -57,7 +54,7 @@ public class C03_PutRequest extends HerOkuAppBaseUrl {
 
         //Set the expected data
         BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01", "2019-01-01");
-        BookingPojo expectedData = new BookingPojo("Ali", "Can", 100, true, bookingDatesPojo, "Dinner");
+        BookingPojo expectedData = new BookingPojo("Ali", "Can", 222, true, bookingDatesPojo, "Breakfast");
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response
@@ -77,7 +74,5 @@ public class C03_PutRequest extends HerOkuAppBaseUrl {
         assertEquals(bookingDatesPojo.getCheckout(), actualData.getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getAdditionalneeds());
 
-
     }
-
 }

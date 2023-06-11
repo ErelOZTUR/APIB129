@@ -10,7 +10,7 @@ import pojos.BookingPojo;
 
 import static herokuapp_smoketest.C01_PostRequest.bookingId;
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class C02_GetRequest extends HerOkuAppBaseUrl {
     /*
@@ -22,22 +22,23 @@ public class C02_GetRequest extends HerOkuAppBaseUrl {
         Status code is 200
     And
         Body:
-            {
-                "firstname": "Jim",
-                "lastname": "Brown",
-                "totalprice": 111,
-                "depositpaid": true,
-                "bookingdates": {
-                    "checkin": "2018-01-01",
-                    "checkout": "2019-01-01"
-                },
-                "additionalneeds": "Breakfast"
-            }
+        {
+            "firstname": "Jim",
+            "lastname": "Brown",
+            "totalprice": 111,
+            "depositpaid": true,
+            "bookingdates": {
+                "checkin": "2018-01-01",
+                "checkout": "2019-01-01"
+            },
+            "additionalneeds": "Breakfast"
+        }
+
      */
 
     @Test
     public void get01() {
-        //Set the url --> bookingId parametresini post classtan import ediyoruz.
+        //Set the url
         spec.pathParams("first", "booking", "second", bookingId);
 
         //Set the expected data

@@ -20,16 +20,20 @@ public class HerOkuAppTestData {
         if (firstname!=null){
             expectedData.put("firstname", firstname);
         }
+
         if (lastname!=null){
             expectedData.put("lastname", lastname);
         }
+
         if (totalprice!=null){
             expectedData.put("totalprice", totalprice);
         }
-        if (depositpaid!=null){
+
+        if(depositpaid!=null){
             expectedData.put("depositpaid", depositpaid);
         }
-        if (bookingdatesMap!=null){
+
+        if(bookingdatesMap!=null){
             expectedData.put("bookingdates", bookingdatesMap);
         }
 

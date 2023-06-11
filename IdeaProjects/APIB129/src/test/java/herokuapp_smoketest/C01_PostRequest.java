@@ -10,7 +10,7 @@ import pojos.BookingResponsePojo;
 
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class C01_PostRequest extends HerOkuAppBaseUrl {
     /*
@@ -18,50 +18,51 @@ public class C01_PostRequest extends HerOkuAppBaseUrl {
         https://restful-booker.herokuapp.com/booking
     And
         {
-            "firstname" : "Jim",
-            "lastname" : "Brown",
-            "totalprice" : 111,
-            "depositpaid" : true,
-            "bookingdates" : {
-                "checkin" : "2018-01-01",
-                "checkout" : "2019-01-01"
-            },
-            "additionalneeds" : "Breakfast"
+        "firstname" : "Jim",
+        "lastname" : "Brown",
+        "totalprice" : 111,
+        "depositpaid" : true,
+        "bookingdates" : {
+            "checkin" : "2018-01-01",
+            "checkout" : "2019-01-01"
+        },
+        "additionalneeds" : "Breakfast"
         }
-     When
+
+    When
         Send post request
-
-     Then
+    Then
         Status code is 200
-
-     And
+    And
         Body:
-         {
-            "bookingid": 1,
-            "booking": {
-                "firstname": "Jim",
-                "lastname": "Brown",
-                "totalprice": 111,
-                "depositpaid": true,
-                "bookingdates": {
-                    "checkin": "2018-01-01",
-                    "checkout": "2019-01-01"
-                },
-                "additionalneeds": "Breakfast"
-            }
+        {
+        "bookingid": 937,
+        "booking": {
+            "firstname": "Jim",
+            "lastname": "Brown",
+            "totalprice": 111,
+            "depositpaid": true,
+            "bookingdates": {
+                "checkin": "2018-01-01",
+                "checkout": "2019-01-01"
+            },
+            "additionalneeds": ""Breakfast""
         }
-
+    }
+​
+​
      */
+
     public static int bookingId;
 
     @Test
-    public void post01(){
+    public void post01() {
         //Set the url
-        spec.pathParam("first","booking");
+        spec.pathParam("first", "booking");
 
         //Set the expected data
-        BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01","2019-01-01");
-        BookingPojo expectedData = new BookingPojo("Jim","Brown",111,true,bookingDatesPojo,"Breakfast");
+        BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01", "2019-01-01");
+        BookingPojo expectedData = new BookingPojo("Jim", "Brown", 111, true, bookingDatesPojo, "Breakfast");
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response
@@ -82,7 +83,7 @@ public class C01_PostRequest extends HerOkuAppBaseUrl {
         assertEquals(expectedData.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
 
         bookingId = response.jsonPath().getInt("bookingid");
-        //Post request ile oluşturulan bookingId'yi get ve diğer işlemler için kullanmam gerektiğinden id'yi bir container içinde belirtiyorum.
+        //Post request ile oluşturulan bookingid değerine başka işlemlerde kullanılmak üzere diğer classlardan ulaşılabilmesi için static bir container içerisine atama yapıyoruz.
 
     }
 }

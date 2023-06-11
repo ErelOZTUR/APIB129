@@ -14,13 +14,10 @@ public class HerOkuAppBaseUrl {
 
     @Before
     public void setUp() {
-
         spec = new RequestSpecBuilder()
-                .addHeader("Cookie", "token="+generateToken())
-                .setContentType(ContentType.JSON)
-                .setBaseUri("https://restful-booker.herokuapp.com/")
+                .addHeader("Cookie","token="+generateToken())
+                .setContentType(ContentType.JSON).setBaseUri("https://restful-booker.herokuapp.com")
                 .build();
-
     }
 
 }
